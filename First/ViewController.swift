@@ -19,10 +19,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         label.text = "hello!"
         
         textField = UITextField()
-        textField.borderStyle = UITextBorderStyle.RoundedRect
-        
+        textField.borderStyle = .RoundedRect
+
         button = UIButton(type: .RoundedRect)
-        button.setTitle("Set Default Label Text", forState: UIControlState.Normal)
+        button.setTitle("Set Default Label Text", forState: .Normal)
 
         super.init(nibName: nil, bundle: nil)
         
