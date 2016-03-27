@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.init(nibName: nil, bundle: nil)
         
         textField.delegate = self
-        button.addTarget(self, action: "buttonPressed", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(ViewController.buttonPressed), forControlEvents: .TouchUpInside)
     }
 
     required init?(coder aDecoder: NSCoder) {
