@@ -10,24 +10,20 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    let label: UILabel
-    let textField: UITextField
-    let button: UIButton
+    let label = UILabel()
+    let textField = UITextField()
+    let button = UIButton(type: .RoundedRect)
     
     init() {
-        label = UILabel()
+        super.init(nibName: nil, bundle: nil)
+
         label.text = "hello!"
         
-        textField = UITextField()
-        textField.borderStyle = .RoundedRect
-
-        button = UIButton(type: .RoundedRect)
-        button.setTitle("Set Default Label Text", forState: .Normal)
-
-        super.init(nibName: nil, bundle: nil)
-        
         textField.delegate = self
+        textField.borderStyle = .RoundedRect
+        
         button.addTarget(self, action: #selector(ViewController.buttonPressed), forControlEvents: .TouchUpInside)
+        button.setTitle("Set Default Label Text", forState: .Normal)
     }
 
     required init?(coder aDecoder: NSCoder) {
