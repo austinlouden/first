@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let label = UILabel()
     let textField = UITextField()
-    let button = UIButton(type: .RoundedRect)
+    let button = UIButton(type: .roundedRect)
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -20,10 +20,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         label.text = "hello!"
         
         textField.delegate = self
-        textField.borderStyle = .RoundedRect
+        textField.borderStyle = .roundedRect
         
-        button.addTarget(self, action: #selector(ViewController.buttonPressed), forControlEvents: .TouchUpInside)
-        button.setTitle("Set Default Label Text", forState: .Normal)
+        button.addTarget(self, action: #selector(ViewController.buttonPressed), for: .touchUpInside)
+        button.setTitle("Set Default Label Text", for: UIControlState())
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -32,21 +32,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
-        label.frame = CGRectMake(20, 40, CGRectGetWidth(self.view.frame) - 40, 20)
+        label.frame = CGRect(x: 20, y: 40, width: self.view.frame.width - 40, height: 20)
         self.view.addSubview(label)
         
-        textField.frame = CGRectMake(20, CGRectGetMaxY(label.frame) + 10, CGRectGetWidth(self.view.frame) - 40, 30)
+        textField.frame = CGRect(x: 20, y: label.frame.maxY + 10, width: self.view.frame.width - 40, height: 30)
         self.view.addSubview(textField)
         
-        button.frame = CGRectMake(20, CGRectGetMaxY(textField.frame) + 10, CGRectGetWidth(self.view.frame) - 40, 30)
+        button.frame = CGRect(x: 20, y: textField.frame.maxY + 10, width: self.view.frame.width - 40, height: 30)
         self.view.addSubview(button)
         
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         label.text = textField.text
         return false
     }
